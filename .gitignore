@@ -1,0 +1,6 @@
+# ignore OSX DSStore files
+.DS_Store
+
+# ignore Osx ._ files
+._*
+
