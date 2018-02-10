@@ -1,0 +1,59 @@
+version: 2
+jobs:
+  frontend_lint:
+    docker:
+      - image: circleci/node:8.9.4
+    working_directory: ~/graphql-api-base
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-frontend-dependencies-{{ checksum "Frontend/yarn.lock" }}
+          - v1-frontend-dependencies-
+      - run:
+          working_directory: ~/graphql-api-base/Frontend
+          name: yarn install
+          command: yarn
+      - save_cache:
+          key: v1-dependencies-{{ checksum "Frontend/yarn.lock" }}
+          paths:
+            - Frontend/node_modules
+      - run:
+          name: lint
+          working_directory: ~/graphql-api-base/Frontend
+          command: yarn lint
+  frontend_test:
+    docker:
+      - image: circleci/node:8.9.4
+    working_directory: ~/graphql-api-base
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-frontend-dependencies-{{ checksum "Frontend/yarn.lock" }}
+          - v1-frontend-dependencies-
+      - run:
+          working_directory: ~/graphql-api-base/Frontend
+          name: yarn install
+          command: yarn
+      - save_cache:
+          key: v1-dependencies-{{ checksum "Frontend/yarn.lock" }}
+          paths:
+            - Frontend/node_modules
+      - run:
+          name: test
+          working_directory: ~/graphql-api-base/Frontend
+          command: yarn jest --ci --testResultsProcessor="jest-junit"
+          environment:
+            JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
+      - store_test_results:
+          path: reports/junit
+      - store_artifacts:
+          path: reports/junit
+
+workflows:
+  version: 2
+  frontend:
+    jobs:
+      - frontend_lint
+      - frontend_test
