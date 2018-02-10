@@ -47,9 +47,9 @@ jobs:
           environment:
             JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
       - store_test_results:
-          path: reports/junit
+          path: Frontend/reports/junit
       - store_artifacts:
-          path: reports/junit
+          path: Frontend/reports/junit
 
 workflows:
   version: 2
