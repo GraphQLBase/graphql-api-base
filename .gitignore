@@ -4,3 +4,5 @@
 # ignore Osx ._ files
 ._*
 
+node_modules
+dist
