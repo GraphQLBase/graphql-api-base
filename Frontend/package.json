@@ -10,7 +10,8 @@
     "up": "webpack --mode development",
     "dev": "node ./dist/main.js",
     "lint": "eslint src/**",
-    "test": "jest"
+    "test": "jest",
+    "build:production": "webpack --mode production"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
