@@ -8,8 +8,9 @@
   "license": "MIT",
   "scripts": {
     "up": "webpack --mode development",
-    "dev": "node ./dist/main.js",
-    "lint": "eslint src/**",
+    "server": "node ./dist/server.js",
+    "dev": "yarn server",
+    "lint": "eslint src/**/*.*",
     "test": "jest",
     "build:production": "webpack --mode production"
   },
@@ -43,5 +44,9 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-static": "^4.0.2"
   }
 }
