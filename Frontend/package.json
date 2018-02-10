@@ -25,6 +25,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.6.1",
     "jest": "^22.2.2",
+    "jest-junit": "^3.6.0",
     "prettier": "^1.10.2",
     "ts-node": "^4.1.0",
     "typescript": "^2.7.1",
@@ -34,6 +35,13 @@
   },
   "jest": {
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
