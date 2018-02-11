@@ -11,6 +11,6 @@ app.use(async (ctx, next) => {
 app.use(serve('public'));
 app.use(serve('dist/client'));
 
-app.listen(3001);
+app.listen(3002);
 
-console.log('Frontend is listening on port 3001.');
+console.log('Frontend is listening on port 3002.');
