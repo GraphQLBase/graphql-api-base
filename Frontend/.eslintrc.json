@@ -17,6 +17,7 @@
   "plugins": ["prettier", "react"],
   "rules": {
     "prettier/prettier": "error",
-    "no-console": "warn"
+    "no-console": "warn",
+    "eol-last": "error"
   }
 }
