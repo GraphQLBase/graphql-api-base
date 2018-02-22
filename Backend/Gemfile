@@ -40,6 +40,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rubocop' #, '~> 0.52.1'
+  gem 'pronto', '~> 0.9.5'
+  gem 'pronto-rubocop', '~> 0.9.0'
 end
 
 group :development do
