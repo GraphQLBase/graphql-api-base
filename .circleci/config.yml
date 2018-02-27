@@ -50,10 +50,31 @@ jobs:
           path: Frontend/reports/junit
       - store_artifacts:
           path: Frontend/reports/junit
-
+  backend_tests:
+    docker:
+      - image: circleci/ruby:2.4-node
+    working_directory: ~/graphql-api-base
+    steps:
+      - checkout
+      - run:
+          working_directory: ~/graphql-api-base/Backend
+          name: run rspec tests
+          command: rspec
+  backend_lint:
+    docker:
+      - image: circleci/ruby:2.4-node
+    working_directory: ~/graphql-api-base
+    steps:
+      - checkout
+      - run:
+          working_directory: ~/graphql-api-base/Backend
+          name: run lint tests
+          command: pronto run -c master
 workflows:
   version: 2
   frontend:
     jobs:
       - frontend_lint
       - frontend_test
+      - backend_lint
+      - backend_tests
