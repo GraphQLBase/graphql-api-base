@@ -250,7 +250,7 @@ DEPENDENCIES
   pronto-rubocop (~> 0.9.0)
   puma (~> 3.7)
   rails (~> 5.1.5)
-  reek
+  reek (~> 4.7.3)
   rubocop (~> 0.52.1)
   sass-rails (~> 5.0)
   selenium-webdriver
